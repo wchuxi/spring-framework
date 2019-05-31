@@ -124,4 +124,5 @@
 	  <property name="name"><value>this is<!-- don't mind me --> a <![CDATA[<!--comment-->]]></value></property>
 	</bean>
 
+	<bean id="debugBean" class="org.springframework.tests.sample.beans.TestBean"/>
 </beans>

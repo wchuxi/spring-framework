@@ -39,6 +39,7 @@ import static org.junit.Assert.*;
 import static org.springframework.util.StringUtils.*;
 
 /**
+ * 扫描包
  * @author Chris Beams
  * @author Juergen Hoeller
  */

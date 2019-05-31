@@ -46,6 +46,7 @@ import org.springframework.util.ObjectUtils;
 import static org.junit.Assert.*;
 
 /**
+ * xml加载流程
  * @author Juergen Hoeller
  * @author Chris Beams
  */

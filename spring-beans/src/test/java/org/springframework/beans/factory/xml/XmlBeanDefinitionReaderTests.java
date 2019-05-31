@@ -16,11 +16,7 @@
 
 package org.springframework.beans.factory.xml;
 
-import java.util.Arrays;
-
 import org.junit.Test;
-import org.xml.sax.InputSource;
-
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -30,8 +26,13 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.tests.sample.beans.TestBean;
 import org.springframework.util.ObjectUtils;
+import org.xml.sax.InputSource;
 
-import static org.junit.Assert.*;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Rick Evans
@@ -105,14 +106,15 @@ public class XmlBeanDefinitionReaderTests {
 	}
 
 	private void testBeanDefinitions(BeanDefinitionRegistry registry) {
-		assertEquals(24, registry.getBeanDefinitionCount());
-		assertEquals(24, registry.getBeanDefinitionNames().length);
+		assertEquals(25, registry.getBeanDefinitionCount());
+		assertEquals(25 , registry.getBeanDefinitionNames().length);
 		assertTrue(Arrays.asList(registry.getBeanDefinitionNames()).contains("rod"));
 		assertTrue(Arrays.asList(registry.getBeanDefinitionNames()).contains("aliased"));
 		assertTrue(registry.containsBeanDefinition("rod"));
 		assertTrue(registry.containsBeanDefinition("aliased"));
 		assertEquals(TestBean.class.getName(), registry.getBeanDefinition("rod").getBeanClassName());
 		assertEquals(TestBean.class.getName(), registry.getBeanDefinition("aliased").getBeanClassName());
+		assertEquals(TestBean.class.getName(), registry.getBeanDefinition("debugBean").getBeanClassName());
 		assertTrue(registry.isAlias("youralias"));
 		String[] aliases = registry.getAliases("aliased");
 		assertEquals(2, aliases.length);
